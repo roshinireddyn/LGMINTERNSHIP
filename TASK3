@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <title> Registration Form</title>
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+    <script src="jsregistration.js"></script>
+    <body>
+        <div class="main">
+            <h2><marquee>Student Enrollment Form</marquee></h2>
+            <div class="register">
+                <h1> Register Here</h1>
+                <form id="register" method="post" action="get">
+                 <label> First Name:</label>
+                 <br>
+                 <input type="text" name="fname" id="fname" placeholder="Enter Your first Name">
+                 <br><br>
+                 <label> Last Name:</label>
+                 <br>
+                 <input type="text" name="lname" id="lname" placeholder="Enter Your last Name">
+                 <br><br>
+                 <label> Age:</label>
+                 <br>
+                 <input type="number" name="age" id="age" placeholder="how old are you?">
+                 <br><br>
+                 <label> Email:</label>
+                 <br>
+                 <input type="email" name="email" id="email" placeholder="Enter Your Valid Useremail">
+                 <br><br>
+                 <label> Gender:</label>
+                 <br>
+                 &nbsp;&nbsp;&nbsp;
+                 <input type="radio" name="gender" id="gen">
+                 <span id="gen">Male</span>
+                 &nbsp;&nbsp;&nbsp;
+                 <input type="radio" name="gender" id="gen">
+                 <span id="gen">Female</span>
+                 &nbsp;&nbsp;&nbsp;
+                 <input type="radio" name="gender" id="gen">
+                 <span id="gen">Others</span>
+                 <br><br>
+                 <label> Skills:</label>
+                 <br>
+                 &nbsp;&nbsp;&nbsp;
+                 <input type="checkbox" name="lang" id="lang">
+                 <span id="lang">HTML</span>
+                 &nbsp;&nbsp;&nbsp;
+                 <input type="checkbox" name="lang" id="lang">
+                 <span id="lang">CSS</span>
+                 &nbsp;&nbsp;&nbsp;
+                 <input type="checkbox" name="lang" id="lang">
+                 <span id="lang">JAVA</span>
+                 <br><br>
+                 <input type="submit" id="submit" value="ENROLL" OnClick="enroll()">
+                 <button type="clear" id="clear" value="Clear">Clear</button>
+                </form>
+            </div>
+        </div>
+    </body>
+    <table border="5"id="show">
+        <thead>
+            <tr>
+                <th>FIRST NAME</th>
+                <th>LAST NAME</th>
+                <th>AGE</th>
+                <th>EMAIL</th>
+                <th>GENDER</th>
+                <th>SKILLS</th>
+            </tr>
+        </thead>
+</table>
+</html>
+
+//JAVASCRIPT
+var ele1=[]
+var ele2=[]
+var ele3=[]
+var ele4=[]
+var ele5=[]
+var ele6=[]
+var x=0;
+var n=1;
+function enroll()
+{
+    var enroll=document.getElementById('show');
+    var newenroll=enroll.insertRow(n);
+    ele1[x]=document.getElementById('fname').value;
+    ele2[x]=document.getElementById('lname').value;
+    ele3[x]=document.getElementById('age').value;
+    ele4[x]=document.getElementById('email').value;
+    ele5[x]=document.getElementById('gender').value;
+    ele6[x]=document.getElementById('lang').value;
+
+    var cel1=newenroll.insertCell(0);
+    var cel2=newenroll.insertCell(1);
+    var cel3=newenroll.insertCell(2);
+    var cel4=newenroll.insertCell(3);
+    var cel5=newenroll.insertCell(4);
+    var cel6=newenroll.insertCell(5);
+
+    cel1.innerHTML=ele1[x];
+    cel2.innerHTML=ele2[x];
+    cel3.innerHTML=ele3[x];
+    cel4.innerHTML=ele4[x];
+    cel5.innerHTML=ele5[x];
+    cel6.innerHTML=ele6[x];
+
+            n++;
+            x++;
+            
+        }
+
+//CSS
+*{
+    margin:0 ;
+    padding:0;
+}
+body{
+    background-color: bisque;
+    background-size: 100%;
+}
+div.main{
+    width:400px;
+    height:400px;
+    margin:40px;
+
+}
+h2{
+    background-color: greenyellow;
+    width: 1200px;
+    padding:10px;
+    color: antiquewhite;
+    text-align: center;
+}
+h1{
+    text-align: center;
+    padding: 10px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+div.register{
+    background-color:darkgrey;
+    width:100%;
+    font-size: 18px;
+    padding: 10px;
+    margin:10px;
+}
+form#register{
+    margin: 30px;
+}
+label{
+    font-family: sans-serif;
+    font-size: medium;
+    font-style: italic;
+}
+input#fname{
+    padding: 5px;
+    width: 300px;
+    border-radius: 15px;
+}
+input#lname{
+    padding: 5px;
+    width: 300px;
+    border-radius: 15px;
+}
+input#age{
+    padding: 5px;
+    width: 300px;
+    border-radius: 15px;
+}
+input#email{
+    padding: 5px;
+    width: 300px;
+    border-radius: 15px;
+}
+input#submit{
+    padding: 7px;
+    width: 150px;
+    background-color: orangered;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+input#clear{
+    padding: 7px;
+    width: 100px;
+    background-color: orangered;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+table{
+    width: 500px;
+    float:right;
+    position: 10px 10px;
+}
+button#clear{
+    padding: 7px;
+    width: 150px;
+    background-color: orangered;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
