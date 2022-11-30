@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>TO DO LIST</title>
+        <link href="todo.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div class="main" id="main">
+                <h1>TO DO LIST</h1>
+                <input type="text" id="input" placeholder="TITLE.......">
+                <span onclick="newelement()"class="addbtn">+</span>
+        </div>
+        <ul id="myul">
+            
+        </ul>
+        <script src="todo.js"></script>
+    </body>
+</html>
+
+//CSS
+*{
+    margin: 0;
+    padding: 0;
+}
+body,html{
+    width: 100%;
+    height: 100%;
+}
+div#main{
+    background-color: red;
+    margin: 50px 300px;
+    text-align: center;
+}
+input#input{
+    padding: 10px;
+    width: 500px;
+    color: black;
+}
+.addbtn{
+    padding: 10px;
+    width: 50px;
+    background: darkgray;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+    font-size: medium;
+}
+ul li{
+    cursor: pointer;
+    padding: 10px;
+    width: 500px;
+    position: relative;
+    background: pink;
+    font-size: large;
+    left: 300px;
+}
+.close{
+    position: absolute;
+    right: 300px;
+    top: 0;
+    padding: 10px;
+    width: 500px;
+}
+
+//JAVASCRIPT
+function newelement(){
+   var e1=document.createElement("li");
+   var inputvalue=document.getElementById("input").value;
+   var t=document.createTextNode(inputvalue);
+   e1.appendChild(t);
+   if(inputvalue==' '){
+      alert("Fill It");
+   }
+   else{
+      document.getElementById("myul").appendChild(e1);
+   }
+   document.getElementById("input").value = " ";
+   var sp=document.createElement("span");
+   var txt=document.createTextNode(" ");
+   sp.appendChild(txt);
+   e1.appendChild(sp);
+
+   var close=document.getElementsByClassName("close");
+   var i;
+   for(i=0;i<close.length;i++)
+   {
+      close[i].onclick=function(){
+         this.parentElement.style.display="none";
+      }
+   }
+}
