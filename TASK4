@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>CALCULATOR</title>
+        <link rel="stylesheet" href="stylecalci.css" type="text/css">
+    </head>
+    <body>
+        <h1 class="text-area">!!TRY ME!!</h1>
+        <div class="main flex flex-col item-center">
+            <div class="calci">
+                <input type="text" id="input">
+            </div>
+            <div class="claci">
+                <button class="button">AC</button>  
+                <button class="button">%</button> 
+                <button class="button">M+</button> 
+                <button class="button">M-</button> 
+            </div>
+            <div class="claci">
+                <button class="button">7</button>  
+                <button class="button">8</button> 
+                <button class="button">9</button> 
+                <button class="button">*</button> 
+            </div>
+            <div class="claci">
+                <button class="button">4</button>  
+                <button class="button">5</button> 
+                <button class="button">6</button> 
+                <button class="button">/</button> 
+            </div>
+            <div class="claci">
+                <button class="button">1</button>  
+                <button class="button">2</button> 
+                <button class="button">3</button> 
+                <button class="button">+</button> 
+            </div>
+            <div class="claci">
+                <button class="button">0</button>  
+                <button class="button">.</button> 
+                <button class="button">=</button> 
+                <button class="button">-</button> 
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
+
+//CSS
+html,body{
+    height: 100%;
+    width: 100%;
+    background-color: darkcyan;
+}
+.button{
+    padding: 20px;
+    margin: 0 3px;
+    border: 2px solid black;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.claci{
+    margin: 5px 0;
+    justify-content:space-around;
+    align-items: center;
+}
+.text-area{
+    text-align: center;
+}
+.main{
+  width: 100%;
+  
+}
+.flex{
+  display: flex;
+}
+.flex-col{
+      flex-direction: column;
+}
+.item-center{
+    align-items: center;
+}
+input#input{
+    padding: 10px;
+    width:250px;
+    margin: 5px 5px;;
+    border-radius: 20px;
+}
+
+//JAVASCRIPT
+let string="";
+let buttons=document.querySelectorAll('.button');
+Array.from(buttons).forEach((button)=>{
+ button.addEventListener('click',(e)=>{
+    if(e.target.innerHTML== '='){
+        string=eval(string);
+        document.querySelector('input').value=string;
+    }
+    else if(e.target.innerHTML== 'AC'){
+        string=" ";
+        document.querySelector('input').value=string;
+    }
+    else{
+    console.log(e.target)
+    string=string + e.target.innerHTML;
+    document.querySelector('input').value=string;
+    }
+ })
+})
